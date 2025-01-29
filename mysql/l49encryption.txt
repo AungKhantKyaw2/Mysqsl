@@ -1,0 +1,104 @@
+=>Encrypt
+
+=SHA1(string) Function (Secure Hash Algorith 1) plain text to Encrypt code
+=MD5(string) Function (Message-Dige Hash Algorithm 1) plain text to Encrypt code
+
+
+static code
+*result = be635d4b5c5c730a1a30fb9a5289a4e6
+SELECT MD5("Save Myanmar");
+
+*result = NULL
+SELECT MD5(NULL);
+
+=>Linux
+CRT+alt+tabe2
+
+=Windoes
+windwos +r
+cmd
+
+=>Windoes for XAMPP
+cd/
+cd XAMPP
+cd mysql
+cd bin
+
+=Mysql Login
+mysql -u root -p
+or
+mysql -u root -p -h 127.0.0.1
+mydatabasep@ssword2023A
+
+=>Mysql Logout
+exit;
+or
+\q
+
+
+CREATE TABLE accounts(
+     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+     name VARCHAR(100),
+     email VARCHAR(50),
+     password VARCHAR(255)
+);
+
+DESC accounts;
+SHOW  CREATE TABLE accounts;
+SHOW INDEX FROM accounts;
+
+INSERT INTO accounts(name,email,password)
+VALUES('aung aung','aungaung@gamil.com',12345),
+('su su','susu@gmail.com','abcdef'),
+('kyaw kyaw','kyawkyaw@gamil.com','abcd1234');
+
+SELECT * FROM accounts;
+
+SELECT name,email,password,
+IF(password =12345,'correct password','incorrect password') AS 'verify'
+
+ FROM accounts
+
+
+SELECT name,email,password,
+CASE
+  WHEN password ="12345" THEN  "correct password"
+  WHEN password ="abcdef" THEN  "correct password"
+  WHEN password ="abcd1234" THEN  "correct password"
+  ELSE 'incorrect password'
+END AS 'verify password'
+
+ FROM accounts;
+
+
+
+'incorrect password' 
+SELECT name,email,
+CASE
+  WHEN password =SHA1("12345") THEN  "correct password"
+  WHEN password =SHA1("abcdef") THEN  "correct password"
+  WHEN password =SHA1("abcd1234") THEN  "correct password"
+  ELSE 'incorrect password'
+END AS 'verify password'
+
+ FROM accounts;
+
+ INSERT INTO accounts(name,email,password)
+VALUES('su su','susu@gamil.com',MD5(12345)),
+('nu nu','nunu@gmail.com',MD5('abcdef')),
+('yu yu','yuyu@gamil.com',MD5('abcd1234'));
+
+
+SELECT name,email,
+CASE
+  WHEN password =MD5("12345") THEN  "correct password"
+  WHEN password =MD5("abcdef") THEN  "correct password"
+  WHEN password =MD5("abcd1234") THEN  "correct password"
+  ELSE 'incorrect password'
+END AS 'verify password'
+FROM accounts;
+
+SELECT * FROM accounts;
+
+
+
